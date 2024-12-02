@@ -1,3 +1,8 @@
 .env
 .ipynb_checkpoints/
 __pycache__/
+
+
+# Added by cargo
+
+/target
