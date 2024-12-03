@@ -1,21 +1,29 @@
+use std::fs::File;
+use std::io::Read;
+
 pub fn run() -> i32 {
     // Example Input
-    let example = r#"
-        3   4
-        4   3
-        2   5
-        1   3
-        3   9
-        3   3
-    "#;
+    // let example = r#"
+    //     3   4
+    //     4   3
+    //     2   5
+    //     1   3
+    //     3   9
+    //     3   3
+    // "#;
 
+    // Read file
+    let mut file = File::open("src/input/day1.txt").expect("Couldn't open file");
+    let mut file_content = String::new();
+    file.read_to_string(&mut file_content)
+        .expect("Couldn't read file");
     // Create Lists
     let mut left_list: Vec<i32> = Vec::new();
     let mut right_list: Vec<i32> = Vec::new();
     let mut differences: Vec<i32> = Vec::new();
 
     // Add parsed numbers to lists
-    for line in example.lines() {
+    for line in file_content.lines() {
         let numbers: Vec<&str> = line.trim().split_whitespace().collect();
         if numbers.len() == 2 {
             if let (Ok(left), Ok(right)) = (numbers[0].parse::<i32>(), numbers[1].parse::<i32>()) {
