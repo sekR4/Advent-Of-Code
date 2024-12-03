@@ -1,5 +1,6 @@
 mod day1;
 
 fn main() {
-    day1::run();
+    let result = day1::run();
+    println!("{}", result);
 }
